@@ -35,7 +35,18 @@ class StoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formFields = $request->validate([
+            'title' => 'required|max:255',
+            'image' => 'required|image'
+        ]);
+
+        $formFields['image'] = $request->file('image')->store('images', 'public');
+
+        if ($request->has('description')) {
+            $formFields['description'] = $request->description;
+        }
+
+        return redirect(asset('storage/' . $formFields['image']));
     }
 
     /**

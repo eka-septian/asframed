@@ -24,7 +24,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/stories/create', [StoriesController::class, 'create'])->name('stories.create');
+    Route::get('/create', [StoriesController::class, 'create'])->name('stories.create');
+    Route::post('/create', [StoriesController::class, 'store'])->name('stories.store');
 });
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

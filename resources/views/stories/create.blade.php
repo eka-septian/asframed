@@ -1,12 +1,19 @@
 <x-app-layout>
-    <form action="#" enctype="multipart/form-data">
+    <form action="{{route('stories.store')}}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <p>{{ $error }}</p>
+            @endforeach            
+            
+        @endif
         <div>
             <label for="title">Title</label>
-            <input type="text" name="title" id="title" />
+            <input type="text" name="title" id="title" value="{{ old('title') }}" />
         </div>
         <div>
-            <label for="description">Title</label>
-            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            <label for="description">description</label>
+            <textarea name="description" id="description" value="{{ old('title') }}" cols="30" rows="10"></textarea>
         </div>
         <div>
             <label for="image">Title</label>
