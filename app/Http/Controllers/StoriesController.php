@@ -40,11 +40,14 @@ class StoriesController extends Controller
             'image' => 'required|image'
         ]);
 
+        $formFields['user_id'] = auth()->id();
         $formFields['image'] = $request->file('image')->store('images', 'public');
 
         if ($request->has('description')) {
             $formFields['description'] = $request->description;
         }
+
+        Stories::create($formFields);
 
         return redirect(asset('storage/' . $formFields['image']));
     }
