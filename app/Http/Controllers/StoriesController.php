@@ -50,7 +50,7 @@ class StoriesController extends Controller
 
         $request->user()->stories()->create($formFields);
 
-        return redirect(asset('storage/' . $formFields['image']));
+        return redirect(route('stories.index'));
     }
 
     /**
