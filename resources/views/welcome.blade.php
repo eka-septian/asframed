@@ -7,6 +7,61 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://fonts.google.com/specimen/Ubuntu" />
 
+    <!-- navbar -->
+    <nav class="bg-white p-5 md:fixed w-full top-0 flex flex-col md:flex-row justify-between">
+      <div class="container mx-auto">
+        <div class="text-black-50 font-bold py-2 px-4">AsFrammed</a>
+        <div class="hidden md:flex">
+        <a href="#" class="text-blue-950 font-bold py-2 px-4">Explore</a>
+        <a href="#" class="text-blue-950 font-bold py-2 px-4">Crate</a>
+      </div>
+
+      <!-- search button -->
+      <div class="md:flex items-center justify-center">
+        <div class="mr-4">
+          <input
+            type="text"
+            class="border p-2 px-4 rounded-full"
+            placeholder="Search" />
+        </div>
+        
+      <!-- Login register button -->
+      <div class="container mx-auto flex items-end justify-end">
+        <button
+          class="hidden md:flex bg-blue-950 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full">
+          Login
+        </button>
+        <button class="text-blue-950 font-bold py-2 px-4 rounded-full">
+          Sign up
+        </button>
+      </div>
+
+      <!-- Hamburger icon for mobile-->
+      <button
+      id="mobile-menu-toggle"
+      class="md:hidden text-blue-950 focus:outline-none">
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="hidden mx:flex flex-grow items-start justify-start">
+    <a href="#" class="text-blue-950 font-bold py-2 px-4">Explore</a>
+    <a href="#" class="text-blue-950 font-bold py-2 px-4">Crates</a>
+    </nav>
+  </head>
+  <body>
+
+       <!-- ini bagian pic slide header -->
     <div id="gallery" class="relative w-full" data-carousel="slide">
       <!-- Carousel wrapper -->
       <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
@@ -94,35 +149,20 @@
         </span>
       </button>
     </div>
-  </head>
-  <body>
+
     <div class="text-blue-950 font-bold text-center text-3xl">
       <p>Find Your Experience</p>
       <br>
     </div>
-    <nav class="bg-white p-5 fixed w-full top-0 flex justify-between">
-      <div class="container mx-auto">
-        <a href="" class="text-black-50 font-bold px-4">AsFrammed</a>
-        <a href="" class="text-blue-950 font-bold py-2 px-4">Explore</a>
-        <a href="" class="text-blue-950 font-bold py-2 px-4">Crate</a>
-      </div>
-      <div class="flex justify-end">
-        <div class="mr-4">
-          <input
-            type="text"
-            class="border p-2 px-4 rounded-full"
-            placeholder="Search" />
-        </div>
-      <div class="container mx-auto flex justify-end">
-        <button
-          class="bg-blue-950 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full">
-          Login
-        </button>
-        <button class="text-blue-950 font-bold py-2 px-4 rounded-full">
-          Register
-        </button>
-      </div>
-    </nav>
+
+<script>
+  // Toggle mobile menu visibility
+  document.getElementById('mobile-menu-toggle').addEventListener('click', function () {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
+</script>
+
+    <!-- pic isi -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
       <div class="grid gap-4">
         <div>
