@@ -14,7 +14,9 @@ class StoriesController extends Controller
      */
     public function index()
     {
-        //
+        return view('stories.index', [
+            'stories' => Stories::with('user')->latest()->get(),
+        ]);
     }
 
     /**
@@ -40,16 +42,15 @@ class StoriesController extends Controller
             'image' => 'required|image'
         ]);
 
-        $formFields['user_id'] = auth()->id();
         $formFields['image'] = $request->file('image')->store('images', 'public');
 
         if ($request->has('description')) {
             $formFields['description'] = $request->description;
         }
 
-        Stories::create($formFields);
+        $request->user()->stories()->create($formFields);
 
-        return redirect(asset('storage/' . $formFields['image']));
+        return redirect(route('stories.index'));
     }
 
     /**

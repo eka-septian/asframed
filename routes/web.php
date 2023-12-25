@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StoriesController;
+use App\Models\Stories;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/stories', [StoriesController::class, 'index'])->name('stories.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/create', [StoriesController::class, 'create'])->name('stories.create');
