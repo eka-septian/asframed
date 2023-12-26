@@ -1,6 +1,6 @@
 <x-app-layout>
     <form action="{{ route('stories.store') }}" method="POST" enctype="multipart/form-data">
-        @csrf
+        {{-- @csrf --}}
         @if ($errors->any())
             @foreach ($errors->all() as $error)
                 <p>{{ $error }}</p>
