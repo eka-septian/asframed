@@ -25,15 +25,18 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/stories', [StoriesController::class, 'index'])->name('stories.index');
+Route::get('/stories/{stories}', [StoriesController::class, 'show'])->name('stories.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/create', [StoriesController::class, 'create'])->name('stories.create');
     Route::post('/create', [StoriesController::class, 'store'])->name('stories.store');
 });
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+Route::get('/{user}', [ProfileController::class, 'index'])->name('profile.index');
 
 require __DIR__ . '/auth.php';

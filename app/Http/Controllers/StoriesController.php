@@ -61,7 +61,9 @@ class StoriesController extends Controller
      */
     public function show(Stories $stories)
     {
-        //
+        return view('stories.story', [
+            'story' => $stories
+        ]);
     }
 
     /**
