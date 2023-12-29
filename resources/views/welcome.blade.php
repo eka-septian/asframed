@@ -4,246 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://fonts.google.com/specimen/Ubuntu" />
-
-    <!-- navbar -->
-    <nav class="bg-white p-5 md:fixed w-full top-0 flex flex-col md:flex-row justify-between">
-      <div class="container mx-auto">
-        <div class="text-black-50 font-bold py-2 px-4">AsFrammed</a>
-        <div class="hidden md:flex">
-        <a href="#" class="text-blue-950 font-bold py-2 px-4">Explore</a>
-        <a href="#" class="text-blue-950 font-bold py-2 px-4">Crate</a>
-      </div>
-
-      <!-- search button -->
-      <div class="md:flex items-center justify-center">
-        <div class="mr-4">
-          <input
-            type="text"
-            class="border p-2 px-4 rounded-full"
-            placeholder="Search" />
-        </div>
-        
-      <!-- Login register button -->
-      <div class="container mx-auto flex items-end justify-end">
-        <button
-          class="hidden md:flex bg-blue-950 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full">
-          Login
-        </button>
-        <button class="text-blue-950 font-bold py-2 px-4 rounded-full">
-          Sign up
-        </button>
-      </div>
-
-      <!-- Hamburger icon for mobile-->
-      <button
-      id="mobile-menu-toggle"
-      class="md:hidden text-blue-950 focus:outline-none">
-      <svg
-        class="h-6 w-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg">
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16m-7 6h7"></path>
-      </svg>
-    </button>
-  </div>
-  <div class="hidden mx:flex flex-grow items-start justify-start">
-    <a href="#" class="text-blue-950 font-bold py-2 px-4">Explore</a>
-    <a href="#" class="text-blue-950 font-bold py-2 px-4">Crates</a>
-    </nav>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet" />
+      <!-- font -->
+      <link rel="preconnect" href="https://fonts.bunny.net">
+      <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
   </head>
-  <body>
 
-       <!-- ini bagian pic slide header -->
-    <div id="gallery" class="relative w-full" data-carousel="slide">
-      <!-- Carousel wrapper -->
-      <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-        <!-- Item 1 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
-            class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt="" />
-        </div>
-        <!-- Item 2 -->
-        <div
-          class="hidden duration-700 ease-in-out"
-          data-carousel-item="active">
-          <img
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
-            class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt="" />
-        </div>
-        <!-- Item 3 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
-            class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt="" />
-        </div>
-        <!-- Item 4 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
-            class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt="" />
-        </div>
-        <!-- Item 5 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg"
-            class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt="" />
-        </div>
-      </div>
-      <!-- Slider controls -->
-      <button
-        type="button"
-        class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-        data-carousel-prev>
-        <span
-          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-          <svg
-            class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 6 10">
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 1 1 5l4 4" />
-          </svg>
-          <span class="sr-only">Previous</span>
-        </span>
-      </button>
-      <button
-        type="button"
-        class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-        data-carousel-next>
-        <span
-          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-          <svg
-            class="w-4 h-4 text-white dark:text-blue-950 rtl:rotate-180"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 6 10">
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m1 9 4-4-4-4" />
-          </svg>
-          <span class="sr-only">Next</span>
-        </span>
-      </button>
-    </div>
+  <body class="bg-gray-100">
 
-    <div class="text-blue-950 font-bold text-center text-3xl">
-      <p>Find Your Experience</p>
-      <br>
-    </div>
+    <header>
+    <!-- navbar -->
+    <nav
+      class="bg-white p-5 md:fixed w-full top-0 flex flex-col md:flex-row justify-between items-center">
+          <!-- Logo -->
+          <div class="flex items-center shrink-0">
+            <a href="{{ route('dashboard') }}">
+                <x-application-logo class="block w-auto text-gray-800 fill-current h-9" />
+            </a>
+        </div>
 
-<script>
-  // Toggle mobile menu visibility
-  document.getElementById('mobile-menu-toggle').addEventListener('click', function () {
-    document.getElementById('mobile-menu').classList.toggle('hidden');
-  });
-</script>
+        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+          <x-nav-link :href="route('register')" :active="request()->routeIs('dashboard')">
+              {{ __('Dashboard') }}
+          </x-nav-link>
+          <x-nav-link :href="route('stories.index')" :active="request()->routeIs('stories.index')">
+              {{ __('Stories') }}
+          </x-nav-link>
+          <x-nav-link :href="route('stories.create')" :active="request()->routeIs('stories.create')">
+              {{ __('Create') }}
+          </x-nav-link>
+        </div>
+      </nav>
+    </header>
 
-    <!-- pic isi -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="grid gap-4">
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg"
-            alt="" />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg"
-            alt="" />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg"
-            alt="" />
-        </div>
-      </div>
-      <div class="grid gap-4">
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg"
-            alt="" />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg"
-            alt="" />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg"
-            alt="" />
-        </div>
-      </div>
-      <div class="grid gap-4">
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg"
-            alt="" />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg"
-            alt="" />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg"
-            alt="" />
-        </div>
-      </div>
-      <div class="grid gap-4">
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg"
-            alt="" />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg"
-            alt="" />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg"
-            alt="" />
-        </div>
-      </div>
+    <div class="text-blue-950 font-bold text-center text-3xl p-4">
+      <h2>Find Your Experience</h2>
     </div>
   </body>
 </html>
