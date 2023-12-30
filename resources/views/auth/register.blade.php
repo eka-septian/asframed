@@ -1,7 +1,7 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}">
         @csrf
-
+            <div class="grid justify-stretch">
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -48,5 +48,9 @@
                 {{ __('Register') }}
             </x-primary-button>
         </div>
-    </form>
+            </div>
+         </form>
 </x-guest-layout>
+<link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet" />
