@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Stories;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class StoriesController extends Controller
 {
@@ -74,7 +75,9 @@ class StoriesController extends Controller
      */
     public function edit(Stories $stories)
     {
-        //
+        return view('stories.edit', [
+            'story' => $stories
+        ]);
     }
 
     /**
@@ -86,7 +89,19 @@ class StoriesController extends Controller
      */
     public function update(Request $request, Stories $stories)
     {
-        //
+        if ($stories->user_id != auth()->id()) {
+            abort(403, 'Unauthorized');
+        }
+
+        $formFields = $request->except('image');
+
+        if ($request->hasFile('image')) {
+            Storage::disk('public')->delete($stories->image);
+            $formFields['image'] = $request->file('image')->store('images', 'public');
+        }
+
+        $stories->update($formFields);
+        return back();
     }
 
     /**
@@ -97,6 +112,13 @@ class StoriesController extends Controller
      */
     public function destroy(Stories $stories)
     {
-        //
+        if ($stories->user_id != auth()->id()) {
+            abort(403, 'Unauthorized');
+        }
+
+        Storage::disk('public')->delete($stories->image);
+        $stories->delete();
+
+        return back();
     }
 }
