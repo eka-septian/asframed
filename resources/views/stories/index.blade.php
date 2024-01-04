@@ -1,8 +1,11 @@
 <x-app-layout>
+    <div id="response"></div>
     <x-gallery>
+
         @foreach ($stories as $story)
             <div class="mb-4 break-inside-avoid">
-                <a href="{{ route('stories.show', $story) }}">
+                <a hx-get="{{ route('stories.show', $story) }}"
+                    hx-target="#response">
                     <img loading="lazy" width="1000px" height="2000px" src="{{ asset('storage/' . $story->image) }}"
                         class="w-full rounded-xl hover:opacity-75" />
                 </a>
