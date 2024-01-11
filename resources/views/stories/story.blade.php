@@ -16,8 +16,9 @@
                 alt="Photo by {{ $story->user->name }}"
                 class="max-h-full">
         </div>
-        <div>
+        <div class="pt-10 font-semibold text-gray-800 text-center">
             <h1>{{ $story->title }}</h1>
+            <br>
             <p>{{ $story->description }}</p>
         </div>
     </div>
