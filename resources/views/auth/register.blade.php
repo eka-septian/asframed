@@ -2,7 +2,7 @@
         <form method="POST" action="{{ route('register') }}">
         @csrf
         <script src="https://cdn.tailwindcss.com"></script>
-        <div class="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <div class="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <!-- Name -->
         <div>
             <x-input-label class="text-white" for="name" :value="__('Name')" />
@@ -41,7 +41,7 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+            <a class="underline text-sm text-blue-600 hover:text-blue-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a>
 
