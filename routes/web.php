@@ -24,7 +24,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/stories', [StoriesController::class, 'index'])->name('stories.index');
+Route::get('/', [StoriesController::class, 'index'])->name('stories.index');
 Route::get('/stories/{stories}', [StoriesController::class, 'show'])->name('stories.show');
 
 Route::middleware('auth')->group(function () {
