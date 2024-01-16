@@ -125,24 +125,35 @@
 <nav class="py-4 px-8 flex justify-between items-center border-b border-gray-100">
     <div class="flex items-center space-x-4">
         <h2 class="text-lg font-extrabold">LOGO</h2>
-        <x-nav-link :href="route('stories.index')" :active="request()->routeIs('stories.index')">
+        <x-nav-link :href="route('stories.index')"
+            :active="request()->routeIs('stories.index')">
             {{ __('Home') }}
         </x-nav-link>
-        <x-nav-link :href="route('stories.index')" :active="request()->routeIs('stories.create')">
-            {{ __('Create') }}
-        </x-nav-link>
+        @auth
+            <x-nav-link hx-get="{{ route('stories.create') }}"
+                hx-target="main"
+                hx-swap="afterbegin">
+                {{ __('Create') }}
+            </x-nav-link>
+        @else
+            <x-nav-link :href="route('stories.create')">
+                {{ __('Create') }}
+            </x-nav-link>
+        @endauth
     </div>
     <div class="flex items-center space-x-4">
         @auth
             <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <x-dropdown align="right" width="48">
+                <x-dropdown align="right"
+                    width="48">
                     <x-slot name="trigger">
                         <button
                             class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-gray-700 focus:outline-none">
                             <x-user-icon />
 
                             <div class="ml-1">
-                                <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                <svg class="w-4 h-4 fill-current"
+                                    xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 20 20">
                                     <path fill-rule="evenodd"
                                         d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -162,7 +173,8 @@
                         </x-dropdown-link>
 
                         <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
+                        <form method="POST"
+                            action="{{ route('logout') }}">
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"

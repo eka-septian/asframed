@@ -49,9 +49,11 @@ class StoriesController extends Controller
             $formFields['description'] = $request->description;
         }
 
-        $request->user()->stories()->create($formFields);
+        $story = $request->user()->stories()->create($formFields);
 
-        return redirect(route('stories.index'));
+        return view('stories.partials.create-success', [
+            'story' => $story
+        ]);
     }
 
     /**
