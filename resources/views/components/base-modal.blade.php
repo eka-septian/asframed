@@ -9,7 +9,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
         </svg>
     </div>
-    <div x-data="show" class="w-[80%] h-[90%] overflow-y-visible z-20 bg-white rounded-md shadow-xl">
+    <div x-data="show" class="w-[80%] h-[90%] overflow-y-auto z-20 bg-white rounded-md shadow-xl">
         {{ $slot }}
     </div>
 </div>
