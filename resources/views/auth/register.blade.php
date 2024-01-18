@@ -1,54 +1,43 @@
 <x-guest-layout>
-        <form method="POST" action="{{ route('register') }}">
+    <div class="mb-4 text-center space-y-2">
+        <h1 class="text-3xl font-bold">Sign Up</h1>
+    </div>
+    <form method="POST" action="{{ route('register') }}" class="flex flex-col gap-4">
         @csrf
-        <script src="https://cdn.tailwindcss.com"></script>
-        <div class="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <!-- Name -->
         <div>
-            <x-input-label class="text-white" for="name" :value="__('Name')" />
+            <x-input-label class="" for="name" :value="__('Name')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label class="text-white" for="email" :value="__('Email')" />
+        <div>
+            <x-input-label class="" for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
-            <x-input-label class="text-white" for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
+        <div>
+            <x-input-label class="" for="password" :value="__('Password')" />
+            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
         <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label class="text-white" for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
+        <div>
+            <x-input-label class="" for="password_confirmation" :value="__('Confirm Password')" />
+            <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-blue-600 hover:text-blue-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
+        <x-primary-button>
+            Sign Up
+        </x-primary-button>
 
-            <x-primary-button class="ml-4">
-                {{ __('Register') }}
-            </x-primary-button>
+        <div class="text-center text-sm text-gray-500">
+            <div class="">Already have an account? <a href="{{ route('login') }}" class="underline font-semibold text-black">Log In</a></div>
         </div>
-        </div>  
-         </form>
+    </form>
 </x-guest-layout>
