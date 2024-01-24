@@ -4,34 +4,44 @@
     <div class="">
     <form method="POST" action="{{ route('login') }}">    
         @csrf
-        <style>
-            .container {
-                max-width: 300px;
-                margin: 0 auto;
-                margin-top: 100px;
-            }
-        </style>
-         <div class="container">
-        <h1 class="text-2xl font-bold mb-4">Sign In or Create an Account</h1>
-        <form>
-            <div class="mb-4">
-                <label for="email" class="block text-gray-700 font-bold mb-2">Email address</label>
-                <input type="email" id="email" name="email" required class="w-full p-2 border border-gray-300 rounded-md" />
-            </div>
-            <div class="mb-4">
-                <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
-                <input type="password" id="password" name="password" required class="w-full p-2 border border-gray-300 rounded-md" />
-            </div>
-            <button type="submit" class="w-full bg-blue-800 text-white p-2 rounded-md hover:bg-blue-700">Sign In</button>
-        </form>
-        <div class="or mt-4 text-center">Or</div>
-        <div class="social-login mt-4 text-center">
-            <button class="bg-gray-200 p-2 rounded-full mr-2"><i class="fab fa-google"></i></button>
-            <button class="bg-gray-200 p-2 rounded-full mr-2"><i class="fab fa-facebook"></i></button>
-            <button class="bg-gray-200 p-2 rounded-full mr-2"><i class="fab fa-github"></i></button>
+    <div class="mb-4 text-center space-y-2">
+        <h1 class="text-3xl font-extrabold">Log in</h1>
+    </div>
+    <form method="POST" action="{{ route('login') }}" class="flex flex-col gap-4">
+        @csrf
+        <!-- Email Address -->
+        <div>
+            <x-input-label class="" for="email" :value="__('Email')" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
-        <div class="mt-4 text-center">
-            <p>New user? <a href="#" class="text-blue-700">Create an account</a></p>
+        <!-- Password -->
+        <div>
+            <x-input-label class="" for="password" :value="__('Password')" />
+            <x-text-input id="password" class="block mt-1 w-full"
+                type="password"
+                name="password"
+                required autocomplete="current-password" />
+            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        </div>
+        <div class="justify-end mt-4">
+        <x-primary-button>
+            {{ __('Log in') }}
+        </x-primary-button>
+        </div>  
+        <!-- Remember Me -->
+        <div class="text-sm">
+            <label for="remember_me" class="inline-flex items-center">
+                <input id="remember_me" type="checkbox" class="rounded border-gray-300 shadow-sm" name="remember">
+                <span class="ml-2 text-sm ">{{ __('Remember me') }}</span>
+            </label>
+        </div>
+        <div class="text-center text-sm text-gray-500">
+            <div class="">Don't have an acoount yet? <a href="{{ route('register') }}" class="underline font-semibold text-black">Sign Up</a></div>
+            <a class="text-blue-600 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900"
+                href="{{ route('password.request') }}">
+                Forgot your password?
+            </a>
         </div>
     </div>
     </form>

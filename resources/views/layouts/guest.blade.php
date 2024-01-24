@@ -14,16 +14,22 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
+    <body class="relative font-sans antialiased text-gray-900">
+        <div class="hidden sm:block w-screen h-screen">
+            <img src="{{ asset('storage/memories.jpg') }}" class="object-cover w-full h-full" alt="Background Image">
+            <div class="absolute inset-0 bg-black opacity-25"></div>
+        </div>
+        <div class="absolute inset-0 flex items-center justify-center min-h-screen px-6 py-8 md:grid md:grid-cols-2 md:gap-10">
+            <div class="hidden px-16 md:block">
                 <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                    <x-application-logo class="w-20 h-20 text-white fill-current" />
                 </a>
             </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
+            <div class="flex items-center w-full h-full justify-self-center sm:max-w-md">
+                <div class="w-full px-2 py-6 sm:px-8 sm:py-12 bg-white rounded-md">
+                    {{ $slot }} 
+                </div>
             </div>
         </div>
     </body>
