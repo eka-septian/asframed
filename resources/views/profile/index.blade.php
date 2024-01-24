@@ -1,5 +1,6 @@
 <x-app-layout>
-    <h1 class="text-6xl font-medium text-center">{{ $user->name }}</h1>
+    <div class="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow"></div>
+    <h1 class="text-6xl font-medium pl-4 text-left">{{ $user->name }}</h1>
     <x-gallery>
         @foreach ($stories as $story)
             <div class="mb-4 break-inside-avoid" x-data="{ show: false }">

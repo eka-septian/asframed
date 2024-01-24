@@ -1,48 +1,39 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <div class="block max-w-sm p-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <form method="POST" action="{{ route('login') }}">
+    <div class="">
+    <form method="POST" action="{{ route('login') }}">    
         @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label class="text-white" for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <style>
+            .container {
+                max-width: 300px;
+                margin: 0 auto;
+                margin-top: 100px;
+            }
+        </style>
+         <div class="container">
+        <h1 class="text-2xl font-bold mb-4">Sign In or Create an Account</h1>
+        <form>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700 font-bold mb-2">Email address</label>
+                <input type="email" id="email" name="email" required class="w-full p-2 border border-gray-300 rounded-md" />
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
+                <input type="password" id="password" name="password" required class="w-full p-2 border border-gray-300 rounded-md" />
+            </div>
+            <button type="submit" class="w-full bg-blue-800 text-white p-2 rounded-md hover:bg-blue-700">Sign In</button>
+        </form>
+        <div class="or mt-4 text-center">Or</div>
+        <div class="social-login mt-4 text-center">
+            <button class="bg-gray-200 p-2 rounded-full mr-2"><i class="fab fa-google"></i></button>
+            <button class="bg-gray-200 p-2 rounded-full mr-2"><i class="fab fa-facebook"></i></button>
+            <button class="bg-gray-200 p-2 rounded-full mr-2"><i class="fab fa-github"></i></button>
         </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label class="text-white" for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <div class="mt-4 text-center">
+            <p>New user? <a href="#" class="text-blue-700">Create an account</a></p>
         </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 shadow-sm" name="remember">
-                <span class="ml-2 text-sm text-white">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-blue-600 hover:text-blue-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ml-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
+    </div>
     </form>
+    </div>
 </x-guest-layout>
